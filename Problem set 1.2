@@ -1,0 +1,57 @@
+#Problem Set 1.2
+#Name: George Xyooj
+#Time: 1:30
+
+from math import *
+
+guess = 3		#Guess begins @ 3
+pCounter = 1 	#pCounter starts @1 because 2 is a prime# 
+pList = [2]		#create a list to store the prime numbers, store 2 as the first prime number
+
+while pCounter < 1000:
+# counter for the 1000th prime number 
+# once reached the while loop exits and prints the 1000th prime
+	for i in range(2, guess-1):
+	# test for prime by testing every integer between 2 and the current guess		
+		if guess % i == 0:
+		# if there is a no remainder when dividing with i, the guess is not a prime number
+		# go to next guess and break out of loop.  
+			#print str(guess) + " isn't a prime number"
+			guess += 2
+			break
+	else:
+		#print str(guess) + " is a prime number"
+		# if guess is a prime number print it 
+		if pCounter == 999:
+			# if pCounter reaches the 999th prime number, stop looking for the next guess value
+			pList.append(guess) 
+			#append guess to plist
+			pCounter += 1
+		else:
+			# if pCounter is less than 999 continue to look for the next guess value by incrementing by 2
+			pList.append(guess)
+			#append guess to plist
+			pCounter += 1
+			guess += 2
+
+print str(guess) +" is the " + str(pCounter) +"th prime number"
+# print out 1000th prime number
+
+nValue = 10
+pLog = 0
+
+
+# Calculate the log of each prime number to the nValue
+for i in pList:
+	if i <= nValue:
+		#print i #print value of each pList
+		pLog = pLog + log(i)
+	else: break
+
+
+print "The sum of log primes is " + str(pLog)
+print "The nth Value is " + str(nValue)
+print "The ratio of the two is " + str(nValue/pLog)
+
+#print "manually adding log(2) to log(7)"  #manual test
+#print log(2)+log(3)+log(5)+log(7)
