@@ -1,0 +1,45 @@
+#Problem Set 2.4
+#Name: George Xyooj
+#Time: 4
+
+num = 200
+nList = [0,0,0]
+sSm = 11
+sMed = 15
+sLg = 22
+
+
+def chkSum(total):
+		for i in range(10):
+
+			nList[0] = i
+			# Create all variation of sm package
+			for x in range(10):
+				nList[1] = x
+				# Create all variation of med package
+				for k in range(10):
+					nList[2] = k
+					# Create all variation of Lg package
+					if nList[0]*sSm + nList[1]*sMed +nList[2]*sLg == total:
+						return nList
+
+nLimit = 0
+nMax = 0
+
+for i in range(num):
+# check all numbers under the range of number
+	if chkSum(i) == None:
+		nLimit = 0
+		nMax += 1
+		#print nLimit
+	else:
+		if nLimit == sSm:
+			print "The largest number of nuggets that can't be exactly bough: " + str(nMax - (sSm-1))
+				# when sSm consectuive combination are found in a roll, return 
+				# the last position that return "none" - by subtracting from the sSmcounter plus one
+				# (zero combination is counted as 1)
+
+		nLimit += 1
+		nMax += 1
+
+print "To get " + str(num) + " nuggets.  You will need:  " + str(nList[0]) +" small Package, " + str(nList[1]) +" med Package, " + str(nList[2]) +" lage Package " 	
