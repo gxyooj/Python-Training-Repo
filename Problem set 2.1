@@ -1,0 +1,34 @@
+#Problem Set 2.1
+#Name: George Xyooj
+#Time: 
+
+
+
+
+num = 56
+nList = [0,0,0]
+sm = 6
+med = 9
+lg = 20
+
+
+
+def chkSum(total):
+
+
+		for i in range(10):
+			nList[0] = i
+			# Create all variation of sm package
+			
+			for x in range(10):
+				nList[1] = x
+				# Create all variation of med package
+
+				for k in range(10):
+					nList[2] = k
+					# Create all variation of Lg package
+					# print nList
+					if nList[0]*sm + nList[1]*med +nList[2]*lg == total:
+						print nList
+
+print chkSum(num)
