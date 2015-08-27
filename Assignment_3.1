@@ -1,0 +1,61 @@
+#Problem Set 3
+#Name: George Xyooj
+#Time: 
+
+from string import *
+
+#	return how many time each key is within found in the string
+
+
+rString = "getogetogeogeogeogeotgeogeogeogeogeogeottttttbeocreogeo"
+rKey = "geo"
+# String and key to test the two functions
+
+
+"""	below are two function that performs the same task, however they approach it differently, one is iteratively and the other 
+	is recursively"""
+
+
+# iterative function to find the # of times that the key appears in the string
+def countSubStringMatch(target, key):
+	wTarget = target
+	kCount = 0
+	print "Original String: " + wTarget
+
+	while len(wTarget) >= len(key):
+		if key == wTarget[0:len(key)]:
+			print "+1 " + wTarget
+			wTarget = wTarget[len(key): len(wTarget)]
+			kCount += 1
+		else:
+			print "+0 " + wTarget			
+			wTarget = wTarget[1:len(wTarget)]
+	return "There are %s %s's in the string." %(kCount, key)
+print countSubStringMatch(rString, rKey)
+
+
+# recursive function to find the # of times that the key appears in the string
+def countSubStringMatchRecursive(target, key):
+	nTarget = target
+	ans = 0
+
+	if len(nTarget) > len(key):
+		if key == nTarget[0:len(key)]:
+			ans = 1 + countSubStringMatchRecursive(nTarget[len(key): len(nTarget)], key)
+			# print ans  
+			return ans
+		else: 
+			ans = 0 + countSubStringMatchRecursive(nTarget[1: len(nTarget)], key)
+			#print ans
+			return ans
+	elif len(nTarget) == len(key):
+		ans = ans + 1
+		#print ans
+		return ans
+	else:
+		ans = ans + 0
+		#print ans
+		return ans
+
+print "Using recursion, there are %s's %s in the String." %( (countSubStringMatchRecursive(rString, rKey)), rKey)
+
