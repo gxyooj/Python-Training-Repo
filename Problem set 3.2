@@ -1,0 +1,42 @@
+#Problem Set 3.2
+#Name: George Xyooj
+#Time: 
+
+from string import *
+
+#   return a list of the first index position of every iteration that the key shows up in the string. 
+
+rString1 = 'atgaatgcatggatgtaaatgcag'
+rString2 = 'atgacatgcacaagtatgcat'
+# String and key to test the two functions
+
+
+
+
+rkey1 = 'a'
+rkey2 = 'atg'
+rkey3 = 'atgc'
+rkey4 = 'atgca' 
+
+def subStringMatchExact(target, key):
+    #this function locates each instance of the key within the target
+    aList = []
+    counter = 0 # counter to track which index is currently being evaluated
+
+    for i in target:
+        if key == target[counter : counter + len(key)]:
+            # key is checked against every string within target is the same length as the key  
+            aList.append(counter)   #if key is a match, append the index value to the list - alist[]
+            counter += 1            
+        else: counter += 1
+    print aList
+
+
+print subStringMatchExact(rString1, rkey1)
+print subStringMatchExact(rString1, rkey2)
+print subStringMatchExact(rString1, rkey3)
+print subStringMatchExact(rString1, rkey4)
+print subStringMatchExact(rString2, rkey1)
+print subStringMatchExact(rString2, rkey2)
+print subStringMatchExact(rString2, rkey3)
+print subStringMatchExact(rString2, rkey4)
